@@ -2,16 +2,15 @@ import { initReactQueryAuth } from 'react-query-auth';
 
 import { Spinner } from '@/components/Elements';
 import {
-  loginWithEmailAndPassword,
-  getUser,
-  registerWithEmailAndPassword,
+  // loginWithEmailAndPassword,
+  // getUser,
+  // registerWithEmailAndPassword,
   UserResponse,
   LoginCredentialsDTO,
   RegisterCredentialsDTO,
   AuthUser,
-} from '@/features/auth';
-import storage from '@/utils/storage';
-
+} from '../features/auth'
+import storage from '../utils/storage'
 
 const myUser = {
 	id: 'ds4ds7f7d5fd5f',
@@ -22,10 +21,10 @@ const myUser = {
   role: 'USER',
 }
 
-const myResponse = {
-	jwt: 'dsdsd5df8s4f4s87f8gf5gh78gh78g4f55a5s5f4s8dfg4441',
-	user: myUser
-}
+// const myResponse = {
+// 	jwt: 'dsdsd5df8s4f4s87f8gf5gh78gh78g4f55a5s5f4s8dfg4441',
+// 	user: myUser
+// }
 
 
 async function handleUserResponse(data: UserResponse) {
@@ -45,15 +44,15 @@ async function loadUser() {
 
 async function loginFn(data: LoginCredentialsDTO) {
   // const response = await loginWithEmailAndPassword(data);
-  const response = await new Promise((resolve) => setTimeout(() => resolve(myResponse), 2000 ))
-  const user = await handleUserResponse(response);
+  const user = await new Promise((resolve) => setTimeout(() => resolve(myUser), 2000 ))
+  // const user = await handleUserResponse(response);
   return user;
 }
 
 async function registerFn(data: RegisterCredentialsDTO) {
   // const response = await registerWithEmailAndPassword(data);
-  const response = await new Promise((resolve) => setTimeout(() => resolve(myResponse), 2000 ))
-  const user = await handleUserResponse(response);
+  const user = await new Promise((resolve) => setTimeout(() => resolve(myUser), 2000 ))
+  // const user = await handleUserResponse(response);
   return user;
 }
 
